@@ -23,9 +23,15 @@
  xsi:schemaLocation="http://www.jasig.org/uportal/web/skin https://source.jasig.org/schemas/resource-server/skin-configuration/skin-configuration-v1.2.xsd">
 
   <css>css/HRSPortlet.css</css>
+  
+  <js included="plain" resource="true">/rs/jquery/1.11.0/jquery-1.11.0.js</js>
+  <js included="aggregated" resource="true">/rs/jquery/1.11.0/jquery-1.11.0.min.js</js>
+  
+  <js>js/portlet.js</js>
 
   <css import="true">common-resources.xml</css>
     
   <js import="true">common-resources.xml</js>
-    
+  
+  
 </resources>

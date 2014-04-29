@@ -61,6 +61,7 @@ public class RestTaxStatementDao implements TaxStatementDao {
         this.statementsUrl = statementsUrl;
     }
     public void setStatementUrl(String statementUrl) {
+        System.out.println("HERE");
         this.statementUrl = statementUrl;
     }
     

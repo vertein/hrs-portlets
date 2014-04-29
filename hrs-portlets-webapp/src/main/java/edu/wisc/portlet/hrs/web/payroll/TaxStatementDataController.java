@@ -58,6 +58,7 @@ public class TaxStatementDataController {
     
     @Autowired
     public void setTaxStatementDao(TaxStatementDao taxStatementDao) {
+
         this.taxStatementDao = taxStatementDao;
     }
 
@@ -73,6 +74,11 @@ public class TaxStatementDataController {
     }
     
     @ResourceMapping("irs_statement.pdf")
+    public void getTim(){
+        System.out.println("Hello");
+    }
+    
+    @ResourceMapping("irs_statement")
     public void getTaxStatement(
             @RequestParam("docId") String docId, 
             ResourceResponse response) {

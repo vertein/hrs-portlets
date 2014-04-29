@@ -89,8 +89,8 @@
               </tr>
             </thead>
             <tbody>
-                <tr rsf:id="row:" class="dl-clickable">
-                  <td class="hrs-data-text dl-col-5p"><a href="#" target="_blank" rsf:id="year"></a></td>
+                <tr rsf:id="row:" class="dl-clickable irs-statement-links" oncontextmenu="return false;">
+                  <td class="hrs-data-text dl-col-5p"><a class="timTestClass" href="#" target="_blank" rsf:id="year"></a></td>
                   <td class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></a></td>
                 </tr>
             </tbody>
@@ -130,11 +130,31 @@
     <portlet:param name="docId" value="TMPLT_*.docId_TMPLT"/>
 </portlet:resourceURL>
 
+<portlet:actionURL var="irsStatementPdfUrl">
+    <portlet:param name="docId" value="TMPLT_*.docId_TMPLT"/>
+</portlet:actionURL>
+
 
 <script type="text/javascript" language="javascript">
 <rs:compressJs>
+
 (function($, fluid, dl) {
     $(function() {
+        if(Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0){
+            <%-- Browser is Safari --%>
+            $(".irs-statement-links").bind("contextmenu",function(e){
+                alert("Clicked");
+                return false;
+            });
+        }
+        
+        if (typeof jQuery != 'undefined') {  
+            // jQuery is loaded => print the version
+            alert(jQuery.fn.jquery);
+        }else{
+            alert("no jquery");
+        }
+        
         var updateAmmountVisibility = function(checkbox) {
             var checked = checkbox.is(':checked');
             var ammounts = $("#${n}dl-payroll-information table.dl-table a.dl-earning-amount");
@@ -226,6 +246,6 @@
         
         dl.util.clickableContainer("#${n}dl-payroll-information");
     });    
-})(dl_v1.jQuery, dl_v1.fluid, dl_v1);
+})(hrsPortlet.jQuery, dl_v1.jQuery, dl_v1.fluid, dl_v1);
 </rs:compressJs>
 </script>
